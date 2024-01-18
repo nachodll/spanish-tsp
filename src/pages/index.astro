@@ -1,14 +1,26 @@
 ---
-import { getComunidades, getProvincias, getMunicipios } from '../services/geoapi.js'
-
-const comunidades = await getComunidades()
-const provincias = await getProvincias('01')
-const municipios = await getMunicipios('29')
-console.log(comunidades)
-console.log(provincias)
-console.log(municipios)
-
+import Selectors from '../components/Selectors.astro'
 ---
 
-Hola soy el index
-<h1>{comunidades}</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spanish TSP</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.svg">
+</head>
+<body>
+  <h1>Spanish TSP project</h1>
+
+  <Selectors></Selectors>
+
+  
+</body>
+
+<style>
+  h1 {
+    text-align: center;
+  }
+</style>
+</html>
