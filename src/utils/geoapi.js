@@ -1,6 +1,4 @@
-
-// const geoapiKey = import.meta.env.GEOAPI_KEY
-const geoapiKey = '995c199bdd0f89bca989fd729d06a44883b5912a9f4fd316e580a6e01ce331b0'
+const geoapiKey = ''
 
 /**
  * Returns all Comunidades in Spain with the following format
