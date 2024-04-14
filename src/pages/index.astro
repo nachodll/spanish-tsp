@@ -1,5 +1,5 @@
 ---
-import Selectors from '../components/Selectors.astro'
+import { ComProvMunDropdowns } from "../components/ComProvMunDropdowns.jsx"
 ---
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ import Selectors from '../components/Selectors.astro'
 <body>
   <h1>Spanish TSP project</h1>
 
-  <Selectors></Selectors>
+  <ComProvMunDropdowns client:load></ComProvMunDropdowns>
 
   
 </body>
@@ -23,4 +23,3 @@ import Selectors from '../components/Selectors.astro'
     text-align: center;
   }
 </style>
-</html>
