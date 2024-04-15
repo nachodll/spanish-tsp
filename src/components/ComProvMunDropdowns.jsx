@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { getProvincias, getComunidades, getMunicipios } from "../utils/geoapi.js"
+import './ComProvMunDropdowns.css'
 
 
 export function ComProvMunDropdowns() {
@@ -59,7 +60,7 @@ export function ComProvMunDropdowns() {
   }
 
   return (
-    <>
+    <div className="dropdownsContainer">
       <select onChange={handleChangeComunidad}>
         {!selectedComunidad && <option value="">--selecciona comunidad--</option>}
         { comunidades &&
@@ -92,6 +93,6 @@ export function ComProvMunDropdowns() {
           ))
         }
       </select>
-    </>
+    </div>
   )
 }
