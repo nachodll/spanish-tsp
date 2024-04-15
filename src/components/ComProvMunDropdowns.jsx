@@ -13,15 +13,15 @@ export function ComProvMunDropdowns() {
 
   useEffect(()=>{
     getComunidades()
-      .then(data => setComunidades(data))
+      .then(comunidades => setComunidades(comunidades))
 
     return () => {setComunidades(null)}
   }, [])
 
   useEffect(()=>{
     if (selectedComunidad !== null){
-      getProvincias(selectedComunidad.CCOM)
-        .then(data => setProvincias(data))
+      getProvincias(selectedComunidad.id)
+        .then(provincias => setProvincias(provincias))
     }
     setSelectedProvincia(null)
 
@@ -30,8 +30,8 @@ export function ComProvMunDropdowns() {
 
   useEffect(()=>{
     if (selectedProvincia !== null){
-      getMunicipios(selectedProvincia.CPRO)
-        .then(data => setMunicipios(data))
+      getMunicipios(selectedProvincia.id)
+        .then(municipios => setMunicipios(municipios))
     }
     setSelectedMunicipio(null)
 
@@ -40,22 +40,22 @@ export function ComProvMunDropdowns() {
 
   const handleChangeComunidad = e => {
     setSelectedComunidad({
-      CCOM: e.target.value, 
-      COM: e.target.options[e.target.selectedIndex].textContent
+      id: e.target.value, 
+      name: e.target.options[e.target.selectedIndex].textContent
     })
   }
 
   const handleChangeProvincia = e => {
     setSelectedProvincia({
-      CPRO: e.target.value, 
-      PRO: e.target.options[e.target.selectedIndex].textContent
+      id: e.target.value, 
+      name: e.target.options[e.target.selectedIndex].textContent
     })
   }
 
   const handleChangeMunicipio = e => {
     setSelectedMunicipio({
-      CMUM: e.target.value, 
-      DMUN50: e.target.options[e.target.selectedIndex].textContent
+      id: e.target.value, 
+      name: e.target.options[e.target.selectedIndex].textContent
     })
   }
 
@@ -65,8 +65,8 @@ export function ComProvMunDropdowns() {
         {!selectedComunidad && <option value="">--selecciona comunidad--</option>}
         { comunidades &&
           comunidades.map(comunidad => (
-            <option key={comunidad.CCOM} value={comunidad.CCOM}>
-              {comunidad.COM}
+            <option key={comunidad.id} value={comunidad.id}>
+              {comunidad.name}
             </option>
           ))
         }
@@ -76,8 +76,8 @@ export function ComProvMunDropdowns() {
         {!selectedProvincia && <option value="">--selecciona provincia--</option>}
         { provincias &&
           provincias.map(provincia => (
-            <option key={provincia.CPRO} value={provincia.CPRO}>
-              {provincia.PRO}
+            <option key={provincia.id} value={provincia.id}>
+              {provincia.name}
             </option>
           ))
         }
@@ -87,8 +87,8 @@ export function ComProvMunDropdowns() {
         {!selectedMunicipio && <option value="">--selecciona municipio--</option>}
         { municipios &&
           municipios.map(municipio => (
-            <option key={municipio.CMUM} value={municipio.CMUM}>
-              {municipio.DMUN50}
+            <option key={municipio.id} value={municipio.id}>
+              {municipio.name}
             </option>
           ))
         }
