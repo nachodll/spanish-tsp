@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react"
 import { getProvincias, getComunidades, getMunicipios } from "../utils/geoapi.js"
-import './ComProvMunDropdowns.css'
-
 
 export function ComProvMunDropdowns() {
   let [comunidades, setComunidades] = useState(null)
@@ -14,8 +12,6 @@ export function ComProvMunDropdowns() {
   useEffect(()=>{
     getComunidades()
       .then(comunidades => setComunidades(comunidades))
-
-    return () => {setComunidades(null)}
   }, [])
 
   useEffect(()=>{
@@ -24,8 +20,6 @@ export function ComProvMunDropdowns() {
         .then(provincias => setProvincias(provincias))
     }
     setSelectedProvincia(null)
-
-    return () => setProvincias(null)
   }, [selectedComunidad])
 
   useEffect(()=>{
@@ -34,8 +28,6 @@ export function ComProvMunDropdowns() {
         .then(municipios => setMunicipios(municipios))
     }
     setSelectedMunicipio(null)
-
-    return () => setMunicipios(null)
   }, [selectedProvincia])
 
   const handleChangeComunidad = e => {
@@ -93,6 +85,19 @@ export function ComProvMunDropdowns() {
           ))
         }
       </select>
+
+      <style>{`
+        .dropdownsContainer {
+          select {
+            width: 400px;
+            text-align: center;
+          }
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+        }
+      `}</style>
     </div>
   )
 }
